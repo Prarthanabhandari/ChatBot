@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 import spacy
 from spellchecker import SpellChecker
-from flask import send_file
 
 app = Flask(__name__)
 CORS(app)
@@ -26,47 +25,46 @@ def is_meaningful(word):
 
 def analyze_affixes(word):
     affix_info = []
+    prefix_found = None
+    suffix_found = None
     root = word
-    found_affix = False
 
     # Try prefix removal first
     for pre in sorted(prefixes, key=len, reverse=True):
         if word.startswith(pre):
             possible_root = word[len(pre):]
             if is_meaningful(possible_root):
+                prefix_found = pre
+                root = possible_root
                 affix_info.append({
                     "type": "prefix",
-                    "affix": pre,
-                    "root_word": possible_root,
-                    "meaningful": True
+                    "affix": prefix_found,
+                    "root_word": root
                 })
-                root = possible_root
-                found_affix = True
                 break
 
-    # Try suffix removal on current root
+    # Then try suffix on the current root
     for suf in sorted(suffixes, key=len, reverse=True):
         if root.endswith(suf):
             possible_root = root[:-len(suf)]
             if is_meaningful(possible_root):
+                suffix_found = suf
+                root = possible_root
                 affix_info.append({
                     "type": "suffix",
-                    "affix": suf,
-                    "root_word": possible_root,
-                    "meaningful": True
+                    "affix": suffix_found,
+                    "root_word": root
                 })
-                found_affix = True
                 break
 
-    if not found_affix:
-        affix_info.append({"type": "none", "message": "No valid prefix/suffix found"})
+    if not affix_info:
+        affix_info.append({"type": "none", "message": "No meaningful prefix/suffix found"})
 
     return affix_info
 
-
 @app.route("/")
 def home():
-    return send_file("index.html")
+    return render_template("index.html")
 
 @app.route("/analyze", methods=["POST"])
 def analyze():
