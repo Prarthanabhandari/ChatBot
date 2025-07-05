@@ -34,7 +34,7 @@ pydantic_core==2.33.2
 Pygments==2.19.2
 pyspellchecker==0.8.3
 regex==2024.11.6
-requests==2.32.4o
+requests==2.32.4
 rich==14.0.0
 setuptools==80.9.0
 shellingham==1.5.4
