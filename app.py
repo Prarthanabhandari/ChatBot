@@ -59,7 +59,7 @@ def analyze_affixes(word):
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return send_from_directory('.', 'index.html')
 
 @app.route("/analyze", methods=["POST"])
 def analyze():
