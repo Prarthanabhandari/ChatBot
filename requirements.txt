@@ -24,7 +24,7 @@ markdown-it-py==3.0.0
 MarkupSafe==3.0.2
 mdurl==0.1.2
 murmurhash==1.0.13
-numpy==2.3.1
+numpy==1.26.4
 # Temporarily remove opencv-python to isolate build issues
 # opencv-python==4.7.0.68
 packaging==25.0
