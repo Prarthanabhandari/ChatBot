@@ -28,7 +28,7 @@ numpy==2.3.1
 # Temporarily remove opencv-python to isolate build issues
 # opencv-python==4.7.0.68
 packaging==25.0
-Pillow==9.4.0
+Pillow==10.0.1
 preshed==3.0.10
 psutil==7.0.0
 pydantic==2.11.7
