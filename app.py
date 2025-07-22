@@ -3,6 +3,7 @@ from flask_cors import CORS
 import spacy
 from spellchecker import SpellChecker
 import language_tool_python
+import os  # <-- imported os for environment variables
 
 app = Flask(__name__)
 CORS(app)
@@ -128,4 +129,5 @@ def related_words():
     })
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Use Render or other hosting port
+    app.run(host="0.0.0.0", port=port)
