@@ -119,19 +119,29 @@ CSS3
 JavaScript
 APIs
 Web Speech API
+
 📂 Project Structure
+
 linguistic-chatbot/
+
 │
 ├── static/
+
 │   ├── css/
+
 │   ├── js/
+
 │
 ├── templates/
+
 │   └── index.html
 │
 ├── app.py
+
 ├── requirements.txt
+
 └── README.md
+
 🧪 Example (Enhanced)
 
 Input:
