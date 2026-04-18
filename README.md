@@ -159,8 +159,20 @@ Classifies words into:
 
 ---
 
-## 📂 Project Structure
+## 📂 Project Working
 
+-He is unhappy and runing fastly
+
+Output
+-✅ Corrected Sentence:
+-He is unhappy and running fast
+-🧩 Morphological Analysis:
+-unhappy → un + happy
+-running → run + ing
+-🏷 POS Tags:
+-Pronoun | Verb | Adjective | Conjunction | Verb | Adverb
+-🌱 Root Words:
+-happy, run, fast
 
 ## 📂 Project Structure
 
@@ -180,9 +192,15 @@ linguistic-chatbot/
 
 ## ⚙️ Installation & Setup
 
-### 1️⃣ Clone Repository
+
 
 ```bash
+cd linguistic-chatbot
+
+pip install -r requirements.txt
+
+python app.py
+
 git clone https://github.com/your-username/linguistic-chatbot.git
 
 
